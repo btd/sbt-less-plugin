@@ -20,9 +20,38 @@ publishArtifact in (Compile, packageDoc) := false
 
 publishArtifact in (Compile, packageSrc) := false
 
+publishArtifact in Test := false
+
 libraryDependencies += "org.lesscss" % "lesscss" % "1.3.0"
 
-publishMavenStyle := false
+publishMavenStyle := true
 
 scriptedBufferLog := false
 
+publishTo <<= version { (v: String) =>
+  val nexus = "https://oss.sonatype.org/"
+  if (v.trim.endsWith("SNAPSHOT")) 
+    Some("snapshots" at nexus + "content/repositories/snapshots") 
+  else
+    Some("releases"  at nexus + "service/local/staging/deploy/maven2")
+}
+
+pomExtra := (
+  <url>https://github.com/btd/sbt-less-plugin</url>
+  <licenses>
+    <license>
+      <name>ASF</name>
+      <url>http://www.apache.org/licenses/LICENSE-2.0</url>
+      <distribution>repo</distribution>
+    </license>
+  </licenses>
+  <scm>
+    <url>git@github.com:btd/sbt-less-plugin.git</url>
+    <connection>scm:git:git@github.com:btd/sbt-less-plugin.git</connection>
+  </scm>
+  <developers>
+    <developer>
+      <id>btd</id>
+      <name>Bardadym Denis</name>
+    </developer>
+  </developers>)
