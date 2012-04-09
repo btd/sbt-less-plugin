@@ -1,4 +1,4 @@
-sbt-less: SBT Less CSS Plugin
+sbt-less-plugin: SBT Less CSS Plugin (Less 1.3.0)
 =============================
 
 [Simple Build Tool] plugin for compiling [Less CSS] files.
