@@ -4,7 +4,7 @@ organization := "com.github.btd"
 
 name         := "sbt-less-plugin"
 
-version      := "0.0.1"
+version      := "0.0.2"
 
 licenses     += ("Apache License, Version 2.0", url("http://www.apache.org/licenses/LICENSE-2.0.txt"))
 

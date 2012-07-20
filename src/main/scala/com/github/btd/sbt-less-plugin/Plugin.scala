@@ -42,7 +42,7 @@ object Plugin extends sbt.Plugin {
           src <- sourceDir.descendentsExcept(includeFilter, excludeFilter).get
           lessSrc = new LessSourceFile(src, sourceDir, cssDir)
         } {
-          IO.delete(lessSrc.cssFile)
+          lessSrc.cssFile.delete
         }
     }
 
@@ -56,9 +56,7 @@ object Plugin extends sbt.Plugin {
       resourceManaged in less      <<= (resourceManaged in conf),
       clean in less                <<= cleanTask,
       less                         <<= compileTask
-    )) ++ Seq(
-      cleanFiles                   <+=  (resourceManaged in less in conf)
-    )
+    ))
 
   def lessSettings: Seq[Setting[_]] =
     lessSettingsIn(Compile) ++
