@@ -1,1 +1,1 @@
-addSbtPlugin("com.github.btd" %% "sbt-less-plugin" % "latest.integration")
+addSbtPlugin("com.github.btd" %% "sbt-style-plugin" % "latest.integration")

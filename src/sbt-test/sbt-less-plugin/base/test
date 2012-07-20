@@ -58,3 +58,9 @@ $ newer target/scala-2.9.1/resource_managed/main/scala/dir2/file4.css     fixtur
 # Check the target and temporary downloads directories have been deleted:
 $ absent target/scala-2.9.1/resource_managed
 $ absent target/sbt-less/downloads
+
+> combine
+
+# Check that the CSS files exist:
+$ exists target/scala-2.9.1/resource_managed/main/scala/style.css
+> contents target/scala-2.9.1/resource_managed/main/scala/style.css            fixtures/style.css

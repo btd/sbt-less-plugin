@@ -1,9 +1,9 @@
-sbt-less-plugin: SBT Less CSS Plugin (Less 1.3.0)
+sbt-less-plugin: SBT Styles Plugin
 =============================
 
-[Simple Build Tool] plugin for compiling [Less CSS] files.
+[Simple Build Tool] plugin for compiling [Less CSS] files and managing styles in imports file.
 
-Copyright 2011-12 [Denis Bardadym]
+Copyright 2012 [Denis Bardadym]
 
 [Simple Build Tool]: http://simple-build-tool.googlecode.com
 [Less CSS]: http://lesscss.org
@@ -11,15 +11,15 @@ Copyright 2011-12 [Denis Bardadym]
 Installation
 ============
 
-For SBT 0.11:
+For SBT 0.11.3:
 
 Create a `project/plugins.sbt` file and paste the following content into it:
 
-    addSbtPlugin("com.github.btd" %% "sbt-less-plugin" % "0.0.1")
+    addSbtPlugin("com.github.btd" %% "sbt-styles-plugin" % "0.0.3")
 
 In your build.sbt file, put:
 
-    seq(lessSettings : _*)
+    seq(styleSettings : _*)
 
 If you're using [xsbt-web-plugin](https://github.com/siasia/xsbt-web-plugin "xsbt-web-plugin"),
 add the output files to the webapp with:
@@ -74,7 +74,7 @@ Based on sbt-less of Dave Gurnell.
 Licence
 =======
 
-Copyright 2011-12 [Denis Bardadym]
+Copyright 2012 [Denis Bardadym]
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.

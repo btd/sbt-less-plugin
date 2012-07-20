@@ -1,8 +1,8 @@
 import sbt._
 import sbt.Keys._
 import sbt.Project.Initialize
-import com.github.btd.sbt.Plugin._
-import com.github.btd.sbt.Plugin.LessKeys._
+import com.github.btd.Plugin._
+import com.github.btd.Plugin.StyleKeys._
 
 object Build extends Build {
   
@@ -19,7 +19,7 @@ object Build extends Build {
     base = file("."),
     settings = 
       Project.defaultSettings ++ 
-      com.github.btd.sbt.Plugin.lessSettings ++
+      com.github.btd.Plugin.styleSettings ++
       Seq(
         logLevel := Level.Debug,
         runTest <<= runTestTask

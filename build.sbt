@@ -2,9 +2,9 @@ sbtPlugin    := true
 
 organization := "com.github.btd"
 
-name         := "sbt-less-plugin"
+name         := "sbt-style-plugin"
 
-version      := "0.0.2"
+version      := "0.0.3"
 
 licenses     += ("Apache License, Version 2.0", url("http://www.apache.org/licenses/LICENSE-2.0.txt"))
 
@@ -18,7 +18,11 @@ scalacOptions in Compile += Opts.compile.unchecked
 
 publishArtifact in Test := false
 
-libraryDependencies += "org.lesscss" % "lesscss" % "1.3.0"
+libraryDependencies += "org.mozilla" % "rhino" % "1.7R4"
+
+libraryDependencies += "com.yahoo.platform.yui" % "yuicompressor" % "2.4.7"
+
+libraryDependencies += "commons-io" % "commons-io" % "2.4"
 
 publishMavenStyle := true
 

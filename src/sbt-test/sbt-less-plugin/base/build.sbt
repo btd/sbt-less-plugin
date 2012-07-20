@@ -2,7 +2,7 @@ name := "base"
 
 logLevel := Level.Debug
 
-seq(lessSettings : _*)
+seq(styleSettings : _*)
 
 InputKey[Unit]("contents") <<= inputTask { (argsTask: TaskKey[Seq[String]]) =>
   (argsTask, streams) map { (args, out) =>

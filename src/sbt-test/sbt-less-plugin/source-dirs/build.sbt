@@ -2,9 +2,9 @@ name := "source-dirs"
 
 logLevel := Level.Debug
 
-seq(lessSettings : _*)
+seq(styleSettings : _*)
 
-(sourceDirectories in (Compile, LessKeys.less)) <<= (sourceDirectory in Compile) {
+(sourceDirectories in (Compile, StyleKeys.less)) <<= (sourceDirectory in Compile) {
   srcDir =>
     Seq(srcDir / "resources" / "dir2", srcDir / "resources" / "dir1")
 }

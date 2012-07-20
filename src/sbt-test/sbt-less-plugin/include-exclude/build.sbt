@@ -2,11 +2,11 @@ name := "include-exclude"
 
 logLevel := Level.Debug
 
-seq(lessSettings : _*)
+seq(styleSettings : _*)
 
-(includeFilter in (Compile, LessKeys.less)) := ("*.include.less": FileFilter)
+(includeFilter in (Compile, StyleKeys.less)) := ("*.include.less": FileFilter)
 
-(excludeFilter in (Compile, LessKeys.less)) := ("*.exclude*": FileFilter)
+(excludeFilter in (Compile, StyleKeys.less)) := ("*.exclude*": FileFilter)
 
 InputKey[Unit]("contents") <<= inputTask { (argsTask: TaskKey[Seq[String]]) =>
   (argsTask, streams) map { (args, out) =>
