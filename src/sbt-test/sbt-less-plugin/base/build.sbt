@@ -4,6 +4,8 @@ logLevel := Level.Debug
 
 seq(styleSettings : _*)
 
+(StyleKeys.minify in (Compile, StyleKeys.combine)) := true
+
 InputKey[Unit]("contents") <<= inputTask { (argsTask: TaskKey[Seq[String]]) =>
   (argsTask, streams) map { (args, out) =>
     args match {

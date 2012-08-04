@@ -37,7 +37,7 @@ object Plugin extends sbt.Plugin {
     }
 
   def combineTask =
-    (streams, sourceDirectories in less, resourceManaged in less, minify in less) map {
+    (streams, sourceDirectories in less, resourceManaged in less, minify in combine) map {
       (out, sourceDirs, cssDir, compress) =>
         for {
           sourceDir <- sourceDirs
@@ -46,9 +46,12 @@ object Plugin extends sbt.Plugin {
 
         } yield {
           val dataToWrite = if(!compress) importsFile.normalizedContent else {
-            val compressor = new com.yahoo.platform.yui.compressor.CssCompressor(new java.io.StringReader(importsFile.normalizedContent))
+            val reader = new java.io.StringReader(importsFile.normalizedContent)
+            val compressor = new com.yahoo.platform.yui.compressor.CssCompressor(reader)
+            reader.close
+            
             val writer = new java.io.StringWriter
-            compressor.compress(writer, 0);
+            compressor.compress(writer, -1)
             writer.toString
           }
           IO.write(importsFile.outFile, dataToWrite)
